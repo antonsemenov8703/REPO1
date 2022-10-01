@@ -46,5 +46,41 @@ if (weakDay==4) Console.WriteLine("Четверг");
 if (weakDay==5) Console.WriteLine("Пятница");
 if (weakDay==6) Console.WriteLine("Суббота");
 if (weakDay==7) Console.WriteLine("Воскресенье");
-
 */
+
+/*
+// Task 3.1 второй вариант с оператором "switch case"
+Console.WriteLine("Введите число от 1 до 7 ");
+int weakDay = Convert.ToInt32(Console.ReadLine());
+while (weakDay<1|weakDay>7)
+{
+    Console.WriteLine("Вы ввели недопустимый номер. Введите число от 1 до 7 ");
+    weakDay = Convert.ToInt32(Console.ReadLine());
+}
+switch(weakDay)
+{
+    case 1:Console.WriteLine("понедельник");
+    break;
+    case 2:Console.WriteLine("вторник");
+    break;
+    case 3:Console.WriteLine("среда");
+    break;
+    case 4:Console.WriteLine("четверг");
+    break;
+    case 5:Console.WriteLine("пятница");
+    break;
+    case 6:Console.WriteLine("суббота");
+    break;
+    case 7:Console.WriteLine("воскресенье");
+    break;
+        /*  "Эти две строчки оказались ненужными. И без них корректно работает.
+        default:Console.WriteLine("Вы ввели недопустимый номер. Введите число от 1 до 7 ");
+        break;
+        
+}
+*/
+
+// Task 5
+// Напишите программу, которая на вход принимает одно число (N), а на выходе показывает все целые числа в промежуткеот -N до N
+// 4-> "-4 -3 -2 -1 0 1 2 3 4"
+// 2-> "-2 -1 0 1 2"
