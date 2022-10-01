@@ -95,6 +95,7 @@ while (i<=n)
 }
 */
 
+/*
 // Task 7
 // Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает последнюю цифру этого числа
 // 456->6, 782->2, 918->8
@@ -110,3 +111,14 @@ else
 {
     Console.WriteLine(Convert.ToString(n%10));
 }
+*/
+
+// Task 7.1 через While
+Console.WriteLine("Введите трёхзначное число ");
+int n = Convert.ToInt32(Console.ReadLine());
+while (n<100|n>999)
+{
+    Console.WriteLine("Вы ввели неправильное число. Введите трёхзначное число ");
+    n = Convert.ToInt32(Console.ReadLine());
+}
+Console.WriteLine("Последняя цифра числа"+" "+ n +" " +Convert.ToString(n%10));
