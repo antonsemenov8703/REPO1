@@ -80,7 +80,33 @@ switch(weakDay)
 }
 */
 
+/*
 // Task 5
 // Напишите программу, которая на вход принимает одно число (N), а на выходе показывает все целые числа в промежуткеот -N до N
 // 4-> "-4 -3 -2 -1 0 1 2 3 4"
 // 2-> "-2 -1 0 1 2"
+Console.WriteLine("Введите число ");
+int n = Convert.ToInt32(Console.ReadLine());
+int i= -n;
+while (i<=n)
+{
+    Console.Write(Convert.ToString(i)+" ");
+    i++;
+}
+*/
+
+// Task 7
+// Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает последнюю цифру этого числа
+// 456->6, 782->2, 918->8
+Console.WriteLine("Введите трёхзначное число ");
+int n = Convert.ToInt32(Console.ReadLine());
+if (n<100|n>999)
+{
+    Console.WriteLine("Вы ввели неправильное число. Введите трёхзначное число ");
+    n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(Convert.ToString(n%10));
+}
+else 
+{
+    Console.WriteLine(Convert.ToString(n%10));
+}
