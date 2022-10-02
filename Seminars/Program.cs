@@ -124,3 +124,20 @@ while (n<100|n>999)
 }
 Console.WriteLine("Последняя цифра числа"+" "+ n +" " +Convert.ToString(n%10));
 */
+
+Console.WriteLine("enter number");
+int n = Convert.ToInt32(Console.ReadLine());
+int max = n;
+while(-n<=max)
+{
+    if(n%2 == 0)
+    {
+        Console.Write(-n + " ");
+        n--;
+    }
+    else 
+    {
+        Console.Write(-n + " ");
+        n--;
+    }
+}
