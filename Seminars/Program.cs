@@ -125,6 +125,7 @@ while (n<100|n>999)
 Console.WriteLine("Последняя цифра числа"+" "+ n +" " +Convert.ToString(n%10));
 */
 
+/*
 Console.WriteLine("enter number");
 int n = Convert.ToInt32(Console.ReadLine());
 int max = n;
@@ -141,3 +142,51 @@ while(-n<=max)
         n--;
     }
 }
+*/
+
+/*
+// Task №9 Написать программу, которая выводит случайное число из отрезка [10, 99] и показывает наибольшую цифру числа
+
+int a = new Random().Next(10,99);
+    Console.WriteLine(a);
+int first = a / 10;
+int second = a %10;
+if (first > second)
+{
+    Console.WriteLine(first);
+}
+else
+{
+    Console.WriteLine(second);
+}
+*/
+
+/*
+// Task №11 Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цыфру.
+int a = new Random().Next(100,999);
+    Console.WriteLine(a);
+int first = a/100;
+int third = a%10;
+int number = first*10+third;
+    Console.WriteLine(number);
+*/
+
+/*
+//Task №12 Напишите программу, которая будет принимать на вход 2 числа и выводить, является ли первое число кратным второму. Если число 1 не кратно числу 2, то программа выводит остаток от деления.
+
+Console.WriteLine("Введите первое число ");
+int a = Convert.ToInt32(Console.ReadLine());
+//if(a==0) Console.WriteLine("Введите число отличным от нуля ");
+Console.WriteLine("Введите второе число ");
+int b = Convert.ToInt32(Console.ReadLine());
+//if(b==0) Console.WriteLine("Введите число отличным от нуля ");
+if (b%a==0)
+{
+    Console.WriteLine(b + " делится на " + a);
+}
+else 
+{
+    Console.WriteLine(b + " не делится на " + a);
+    Console.WriteLine(b%a);
+}
+*/
