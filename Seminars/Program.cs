@@ -190,3 +190,34 @@ else
     Console.WriteLine(b%a);
 }
 */
+
+/*
+// Task №14 
+Console.WriteLine("Введите число ");
+int a = Convert.ToInt32(Console.ReadLine());
+if (a%7==0 & a%23==0)
+{
+    Console.WriteLine("Кратно");
+}
+else
+{
+    Console.WriteLine("Не кратно");
+}
+*/
+
+/*
+//Task №16 Напишите программу, которая принимает на вход 2 числа и определяет, является ли одно число квадратом другого.
+Console.WriteLine("Введите первое число ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второе число ");
+int b = Convert.ToInt32(Console.ReadLine());
+if(a*a==b|b*b==a)
+{
+    Console.WriteLine("Да ");
+}
+else
+{
+    Console.WriteLine("Нет ");
+}
+*/
+
