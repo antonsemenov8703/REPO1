@@ -221,3 +221,90 @@ else
 }
 */
 
+//Task 
+/*
+Console.WriteLine("Введите x ");
+int x = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите y ");
+int y = Convert.ToInt32(Console.ReadLine());
+if(x>0&y>0)
+{
+    Console.WriteLine("Область 1  ");
+}
+else if(x<0&y>0)
+{
+    Console.WriteLine("Область 2  ");
+}
+else if(x<0&y<0)
+{
+    Console.WriteLine("Область 3  ");
+}
+else if(x>0&y<0)
+{
+    Console.WriteLine("Область 4  ");
+}
+*/
+
+/*
+//Task 18 По номеру четверти показать диапазон
+
+Console.WriteLine("Введите номер четверти ");
+int n = Convert.ToInt32(Console.ReadLine());
+if (n<=0|n>4)
+{
+    Console.WriteLine("Введите число от 1 - 4 ");
+}
+else
+{
+    switch(n)
+    {   
+    case 1: Console.WriteLine("Диапазон x>0, y>0 ");
+    break;
+    case 2: Console.WriteLine("Диапазон x<0, y>0 ");
+    break;
+    case 3: Console.WriteLine("Диапазон x<0, y<0 ");
+    break;
+    case 4: Console.WriteLine("Диапазон x>0, y<0 ");
+    break;
+    }
+}
+*/
+
+/*
+//Task №21 На вход координаты 2 точек и найдём расстояние между ними
+// a(3.6) b(2.1) -> 5.09  формула АВ=/(xb-xa) в квадрате + (ya-yb)в квадрате
+Console.WriteLine("Введите координаты точки A ");
+int xa = Convert.ToInt32(Console.ReadLine());
+int ya = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите координаты точки B ");
+int xb = Convert.ToInt32(Console.ReadLine());
+int yb = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Расстояние между точками" + Math.Round(Math.Sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya)),2)); // двойка в конце - это для округления
+*/
+
+
+/*
+//Task №22 на вход N и выдаёт квадраты чисел от 1 до N
+
+bool one = true; //это означает, что если не корректный ввод, то мы ещё раз запрашиваем ввод
+while (one) // это потому, что в try есть приравнивание к false
+{
+    try
+    {
+        Console.WriteLine("Введите число ");
+        int N = Convert.ToInt32(Console.ReadLine());
+        int count = 1;
+        while (count<=N)
+        {
+            Console.Write( Math.Pow (count, 2)+" ");
+            count++;
+        }
+        one = false;
+    }
+    catch
+    {
+        Console.WriteLine("Введите число ");
+        // если бы тут был false, то уже не выволнялась бы проверка
+    }
+}
+*/
