@@ -235,7 +235,7 @@ else if(x<0&y>0)
 {
     Console.WriteLine("Область 2  ");
 }
-else if(x<0&y<0)
+else if(x<0 & y<0)
 {
     Console.WriteLine("Область 3  ");
 }
@@ -360,6 +360,7 @@ int multiply(int number) //объявили функцию, она может б
 }
 */
 
+/*
 //Задача 30 выводит массив из 8 элементов, заполненный в случайном порядке нулями и единицами
 //объявим массив
 //заполним массив последовательно
@@ -391,3 +392,4 @@ void PrintArray(int[]col)
 int[]array = new int[8];
 FillArray(array);
 PrintArray(array);
+*/
