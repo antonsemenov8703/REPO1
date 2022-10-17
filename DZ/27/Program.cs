@@ -3,16 +3,36 @@
 // 82 -> 10
 // 9012 -> 12
 
+// Вариант №1
+
+// Console.WriteLine("Введите число: ");
+// int number = int.Parse(Console.ReadLine());
+// int NumberSum(int num)
+// {
+//     int sum = 0;
+//     while (number > 0)
+//     {
+//         sum = sum + number%10;
+//         number = number/10;
+//     }
+//     return sum;
+// }
+// Console.WriteLine($"Сумма цифр в числе {number} = {NumberSum(number)} ");
+
+
+// Вариант №2
+
 Console.WriteLine("Введите число: ");
-int number = int.Parse(Console.ReadLine());
-int NumberSum(int num)
+string number = Console.ReadLine();
+
+int NumberSum2(string num)
 {
-    int sum = 0;
-    while (number > 0)
+    int length = number.Length;
+    int result = 0;
+    for (int i = 0; i < length; i++)
     {
-        sum = sum + number%10;
-        number = number/10;
+        result = result + Convert.ToInt32(Convert.ToString(number[i]));
     }
-    return sum;
+    return result;
 }
-Console.WriteLine($"Сумма цифр в числе {number} = {NumberSum(number)} ");
+Console.WriteLine(NumberSum2(number));
