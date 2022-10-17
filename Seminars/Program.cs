@@ -360,7 +360,7 @@ int multiply(int number) //объявили функцию, она может б
 }
 */
 
-/*
+
 //Задача 30 выводит массив из 8 элементов, заполненный в случайном порядке нулями и единицами
 //объявим массив
 //заполним массив последовательно
@@ -368,13 +368,46 @@ int multiply(int number) //объявили функцию, она может б
 
 //вторая функция, которая выводит массив
 
+void FillArray(int[] collection)
+{
+    int length = collection.Length;
+    int index = 0;
+    while (index < length)
+    {
+        collection[index] = new Random().Next(0, 2); //new создаёт новый объект
+        index++;
+    }
+}
+
+void PrintArray(int[] col)
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(col[position]);
+        if (position < count - 1) Console.Write(", ");
+        position++;
+    }
+}
+int[] array = new int[8];
+FillArray(array);
+PrintArray(array);
+
+
+/*
+
+
+// Задача № 31 массив из 12 элементов, рандомными числами из промежутка (-9,9) включительно. Найти сумму положительных и отрицательных элементов массива.
+// не доделана!!!
+
 void FillArray(int[]collection)
 {
     int length = collection.Length;
     int index = 0;
     while (index<length)
     {
-        collection[index]=new Random().Next(0,2); //new создаёт новый объект
+        collection[index]=new Random().Next(-9,10); //new создаёт новый объект
         index++;
     }
 }
@@ -389,7 +422,35 @@ void PrintArray(int[]col)
         position++;
     }
 }
-int[]array = new int[8];
+
+
+void SumPositive(int[]col)
+{
+for(int i =0; i < length; i++)
+{
+    if (array[i] < 0)
+    {
+
+    }
+}
+
+    int count = col.Length;
+    int position = 0;
+    while(position<count)
+    {
+        Console.Write(col[position]+" ");
+        position++;
+    }
+}
+
+
+int[]array = new int[12];
 FillArray(array);
 PrintArray(array);
+
+Недоделана задача 
+
 */
+
+// Задача № 32 Замена элемента массива: положительные элементы заменить на соответствующие отрицательные, и наоборот.
+// [-4,-8,8,2]>[4, 8.-8,-2]
