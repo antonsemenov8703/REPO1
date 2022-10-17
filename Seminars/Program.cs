@@ -360,7 +360,7 @@ int multiply(int number) //объявили функцию, она может б
 }
 */
 
-
+/*
 //Задача 30 выводит массив из 8 элементов, заполненный в случайном порядке нулями и единицами
 //объявим массив
 //заполним массив последовательно
@@ -393,64 +393,118 @@ void PrintArray(int[] col)
 int[] array = new int[8];
 FillArray(array);
 PrintArray(array);
+*/
+
 
 
 /*
-
-
-// Задача № 31 массив из 12 элементов, рандомными числами из промежутка (-9,9) включительно. Найти сумму положительных и отрицательных элементов массива.
-// не доделана!!!
+// Задача № 31 массив из 12 элементов, рандомными числами из промежутка (-9,9) включительно. 
+// Найти сумму положительных и отрицательных элементов массива.
 
 void FillArray(int[]collection)
 {
     int length = collection.Length;
-    int index = 0;
-    while (index<length)
+    for (int index = 0; index < length; index++)
     {
         collection[index]=new Random().Next(-9,10); //new создаёт новый объект
-        index++;
     }
 }
 
 void PrintArray(int[]col)
 {
     int count = col.Length;
-    int position = 0;
-    while(position<count)
+    for (int position = 0;position<count;position++)
     {
         Console.Write(col[position]+" ");
-        position++;
     }
 }
-
-
-void SumPositive(int[]col)
-{
-for(int i =0; i < length; i++)
-{
-    if (array[i] < 0)
-    {
-
-    }
-}
-
-    int count = col.Length;
-    int position = 0;
-    while(position<count)
-    {
-        Console.Write(col[position]+" ");
-        position++;
-    }
-}
-
 
 int[]array = new int[12];
 FillArray(array);
 PrintArray(array);
+Console.WriteLine();
 
-Недоделана задача 
-
+int length = array.Length;
+int sumPositive = 0;
+int sumNegative = 0;
+for (int i =0; i < length; i++)
+{
+    if (array[i] < 0)
+    {
+        sumNegative += array[i]; //sum=sum+col[i] тоже самое
+    }
+    else
+    {
+        sumPositive += array[i];
+    }
+}
+Console.WriteLine($"Сумма положительных элементов массива = {sumPositive}");
+Console.WriteLine($"Сумма отрецательных элементов массива = {sumNegative}");
 */
 
-// Задача № 32 Замена элемента массива: положительные элементы заменить на соответствующие отрицательные, и наоборот.
+/*
+// Задача № 32 Замена элемента массива: положительные элементы заменить на соответствующие 
+// отрицательные, и наоборот.
 // [-4,-8,8,2]>[4, 8.-8,-2]
+
+void FillArray(int[]array, int from, int to)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(from, to+1); 
+    }
+}
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+    Console.WriteLine($"{array[array.Length - 1]}");
+} 
+
+int[] array = new int[12];
+FillArray(array,-10,10);
+PrintArray(array);
+for (int i = 0; i < array.Length; i++)
+{
+    array[i] = array[i]*-1; 
+} 
+PrintArray(array);
+*/
+
+/*
+// Задача №33 Задать массив. Программа определяет, присутствует ли заданное число в массиве
+ 
+void FillArray(int[]array, int from, int to)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(from, to+1); 
+    }
+}
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+    Console.WriteLine($"{array[array.Length - 1]}");
+} 
+
+int[] array = new int[12];
+FillArray(array,1,100);
+PrintArray(array);
+
+Console.WriteLine("Введите число для проверки: ");
+int num = Convert.ToInt32(Console.ReadLine());
+bool result = false;
+for (int i = 0; i < array.Length; i++ )
+{
+    if (array[i] == num) result = true;
+}
+if (result == true) Console.WriteLine($"В массиве присутствует цифра {num}");
+else Console.WriteLine($"В массиве нет цифры {num}");
+ */
