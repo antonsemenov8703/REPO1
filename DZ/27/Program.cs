@@ -31,7 +31,7 @@ int NumberSum2(string num)
     int result = 0;
     for (int i = 0; i < length; i++)
     {
-        result = result + Convert.ToInt32(Convert.ToString(number[i]));
+        result = result + Convert.ToInt32(Convert.ToString(number[i]));// Из символов мы перевели в строку, чтобы i-ое значение строки уже перевести в число и произвести с ним вычисления.
     }
     return result;
 }
