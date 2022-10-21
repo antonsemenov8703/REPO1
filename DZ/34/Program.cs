@@ -7,7 +7,8 @@
 int[] array = new Int32[3];
 FillArray(array, 100, 999);
 PrintArray(array);
-Console.WriteLine(evenNumber(array));
+
+Console.WriteLine($"Количество чётных чисел в массиве равно: {evenNumber(array)}");
 
 int evenNumber(int[] arr)
 {
