@@ -464,18 +464,24 @@ void PrintArray(int[]array)
     Console.WriteLine($"{array[array.Length - 1]}");
 } 
 
+void ChangeSign (int []arr)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        arr[i] = arr[i]*-1; 
+    } 
+}
+
 int[] array = new int[12];
 FillArray(array,-10,10);
 PrintArray(array);
-for (int i = 0; i < array.Length; i++)
-{
-    array[i] = array[i]*-1; 
-} 
+ChangeSign(array);
 PrintArray(array);
 */
 
 /*
-// Задача №33 Задать массив. Программа определяет, присутствует ли заданное число в массиве
+// Задача №33 
+// Задать массив. Программа определяет, присутствует ли заданное число в массиве
  
 void FillArray(int[]array, int from, int to)
 {
@@ -494,17 +500,299 @@ void PrintArray(int[]array)
     Console.WriteLine($"{array[array.Length - 1]}");
 } 
 
+bool Poisk (int [] arr, int n)
+{
+    bool result = false;
+    for (int i = 0; i < arr.Length; i++ )
+    {
+        if (arr[i] == n) result = true;
+    }
+    return result;
+}
+
 int[] array = new int[12];
 FillArray(array,1,100);
 PrintArray(array);
 
 Console.WriteLine("Введите число для проверки: ");
 int num = Convert.ToInt32(Console.ReadLine());
-bool result = false;
-for (int i = 0; i < array.Length; i++ )
+
+// if (Poisk(array,num) == true) Console.WriteLine($"В массиве присутствует цифра {num}");
+// else Console.WriteLine($"В массиве нет цифры {num}");
+
+string result = Poisk(array,num)? $"В массиве присутствует цифра {num}" : $"В массиве нет цифры {num}";
+Console.WriteLine(result);
+// эта форма записи возможна из-за того, что переменной result присваивается возращённое 
+// значение метода булеего типа. Запись через ? через : перечисляется true , потом false
+
+*/
+
+/*
+
+// Задача №35 
+// Задать одномерный массив из 123 случайных чисел. Найти кол-во элементов массива,
+// значения которых лежат в промежутке [10,99]
+
+int[] array = new int[123];
+FillArray(array,1,99);
+PrintArray(array);
+
+void FillArray(int[]array, int from, int to)
 {
-    if (array[i] == num) result = true;
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(from, to+1); 
+    }
 }
-if (result == true) Console.WriteLine($"В массиве присутствует цифра {num}");
-else Console.WriteLine($"В массиве нет цифры {num}");
- */
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+    Console.WriteLine($"{array[array.Length - 1]}");
+} 
+
+int count=0;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] >= 10 && array[i] <= 99)
+    {
+    count++;
+    }
+}
+Console.WriteLine(count);
+*/
+
+
+/*
+// Задача №37 
+// Найдите произведение пар чисел в одномерном массиве. 
+// Парой считать первый и последний элемент, второй и предпоследний элемент.
+// Результат записать в новом массиве.
+
+int len = new Random().Next(5,10);
+Console.WriteLine(len);
+int [] array = new Int32[len];
+
+double half = Math.Ceiling((Convert.ToDouble(len) / 2)); //это округление
+Console.WriteLine(half); 
+int [] newArray = new Int32[Convert.ToInt32(half)];
+
+
+FillArray(array,1,len);
+PrintArray(array);
+
+void FillArray(int[]array, int from, int to)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(from, to+1); 
+    }
+}
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+    Console.WriteLine($"{array[array.Length - 1]}");
+} 
+
+void Poisk (int [] arr)
+{
+    for (int i = 0; i < arr.Length/2; i++ )
+    { 
+        newArray[i] = arr[i]*arr[arr.Length-i-1];
+    }
+    if(arr.Length%2!=0)
+    {
+        newArray[arr.Length/2] = arr[arr.Length/2];
+    }
+}
+Poisk(array);
+PrintArray(newArray);
+*/
+
+
+/*
+// Задача 39
+// Программа переворачивает массив (последний элемент на первом месте, первый на последнем)
+
+
+int [] array = new int [11];
+
+void FillArray(int[]array, int from, int to)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(from, to+1); 
+    }
+}
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+    Console.WriteLine($"{array[array.Length - 1]}");
+} 
+
+void ChangePlace (int [] arr1)
+{
+    for (int i = 0; i < arr1.Length/2; i++)
+    {
+        int t = arr1[i];
+        arr1[i] = arr1[arr1.Length-1-i];
+        arr1[arr1.Length-1-i] = t;
+    }
+}
+
+FillArray(array,1,100);
+PrintArray(array);
+ChangePlace(array);
+PrintArray(array);
+
+
+*/
+
+
+/*
+// Задача №40
+// Принимает на вход 3 числа и проверяет, может ли существовать треугольник со 
+// сторонами такой длины. Теорема о неравенстве треугольника: каждая сторона 
+// треугольника меньше суммы двух других.
+
+Console.WriteLine("Введите три числа: ");
+int a = Convert.ToInt32(Console.ReadLine());
+int b = Convert.ToInt32(Console.ReadLine());
+int c = Convert.ToInt32(Console.ReadLine());
+
+if (a<b+c && b<a+c && c<a+b)
+{
+    Console.WriteLine($"Треугольник со сторонами: {a}, {b}, {c} может существовать ");
+} 
+else    
+    Console.WriteLine($"Треугольник со сторонами: {a}, {b}, {c} не может существовать ");
+
+*/
+
+
+// Задача №42
+// Программа, которая будет преобразовывать десятичное число в двоичное.
+
+// Console.WriteLine("Введите число: ");
+// int a = Convert.ToInt32(Console.ReadLine());
+// int num = a;
+// int reminder = 0;
+// int result = 0;
+//     for (int i = 1; num>0; i=i*10)
+//     {
+//         reminder = num%2;
+//         num = num/2;
+//         result += reminder*i;
+//     }
+// Console.WriteLine($"Число {a} в двоичной системе счисления = {result} ");
+
+/*
+// Другой вариант решения
+
+
+Console.WriteLine("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+string count = null;
+while (number !=0)
+{
+    count += number %2;
+    number /=2; // number = number/2
+}
+for (int i = count.Length - 1; i >= 0; i--)
+{
+    Console.Write(count[i]);
+}
+*/
+
+/*
+// Задача 44: 
+// Не используя рекурсию, выведите первые N чисел Фибоначчи. 
+// Первые два числа Фибоначчи: 0 и 1.
+// Число Фибоначчи - каждое число - это сумма двух предыдущих
+// Если N = 5 -> 0 1 1 2 3
+// Если N = 3 -> 0 1 1
+// Если N = 7 -> 0 1 1 2 3 5 8
+
+Console.WriteLine("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int first = 0;
+int second = 1;
+int fib = 0;
+if (number ==0) Console.WriteLine(first);
+else if (number ==1) Console.WriteLine($"{first} , {second} ");
+else 
+{
+    Console.Write($"{first} , {second} ");
+    for(int i = 2; i < number; i++)
+    {
+        fib = first+second;
+        first = second;
+        second = fib;
+        Console.Write($", {fib} ");
+    } 
+}
+
+*/
+
+/*
+// Задача 45: 
+// Напишите программу, которая будет создавать копию заданного 
+// массива с помощью поэлементного копирования.
+
+void FillArray(int[]array, int from, int to)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(from, to+1); 
+    }
+}
+
+void PrintArray(int[]array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+    Console.WriteLine($"{array[array.Length - 1]}");
+} 
+
+int [] array = new int [10];
+int [] array2 = new int [10];
+
+FillArray (array,1,10);
+PrintArray (array);
+CopyArray(array, array2);
+PrintArray (array2);
+
+void CopyArray (int [] arr, int [] arr2)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr2[i] = arr[i];
+    }
+}
+
+// Так же можно было сделать:
+// int [] ArrayCopy ( int [] array)
+// {
+//     int [] ResArr = new int [length];
+//     for (int i=0; i < length; i++)
+//     {
+//         ResArr[] = array [i];
+//     }
+//     return ResArr;
+// }
+
+*/
