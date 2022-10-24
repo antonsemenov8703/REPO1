@@ -796,3 +796,201 @@ void CopyArray (int [] arr, int [] arr2)
 // }
 
 */
+
+
+/*
+// Задача №46
+// Задать двумерный массив размером m * n, заполненный случайными числами
+// m = 3 , n = 4
+// 1 4 8 1 9
+// 5 -2 3 3 -2
+// 7 7 3 8 1
+
+
+Console.WriteLine("Введите высоту матрицы: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите длину матрицы: ");
+int n = int.Parse(Console.ReadLine()); //два варианта записи считывания введённого значения
+
+int[,] array = new int[m, n];
+
+FillArray(array);
+PrintArray(array);
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)//обращаемся к длине "измерения" в массиве, в данном случае к длине первого измерения - строка 
+    {   
+        for(int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{array[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+*/
+
+
+/*
+// Задача 48: 
+// Задайте двумерный массив размера m на n, 
+// каждый элемент в массиве находится по формуле: Aₘₙ = m+n. 
+// Выведите полученный массив на экран.
+// m = 3, n = 4.
+// 0 1 2 3
+// 1 2 3 4
+// 2 3 4 5
+
+Console.WriteLine("Введите высоту матрицы: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите длину матрицы: ");
+int n = int.Parse(Console.ReadLine()); //два варианта записи считывания введённого значения
+
+int[,] array = new int[m, n];
+
+FillArray(array);
+PrintArray(array);
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = i+j;
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)//обращаемся к длине "измерения" в массиве, в данном случае к длине первого измерения - строка 
+    {   
+        for(int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{array[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+*/
+
+/*
+// Задача 49: 
+// Задайте двумерный массив. Найдите элементы, 
+// у которых оба индекса чётные, и замените эти элементы на их квадраты.
+
+Console.WriteLine("Введите высоту матрицы: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите длину матрицы: ");
+int n = int.Parse(Console.ReadLine()); //два варианта записи считывания введённого значения
+
+int[,] array = new int[m, n];
+
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+PowerEven(array);
+PrintArray(array);
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)//обращаемся к длине "измерения" в массиве, в данном случае к длине первого измерения - строка 
+    {   
+        for(int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{array[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void PowerEven(int[,] matr)
+{
+    for (int i = 0; i<matr.GetLength(0); i+=2)
+    {
+        for (int j = 0; j<matr.GetLength(0); j+=2)
+        {
+            matr[i,j] = matr[i,j] * matr[i,j];
+        }
+    }
+}
+*/
+
+/*
+
+// Задача 51: 
+// Задайте двумерный массив. 
+// Найдите сумму элементов, находящихся на главной диагонали
+
+Console.WriteLine("Введите высоту матрицы: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите длину матрицы: ");
+int n = int.Parse(Console.ReadLine()); //два варианта записи считывания введённого значения
+
+int[,] array = new int[m, n];
+
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+//MainDiagonalSum(array);
+Console.WriteLine(MainDiagonalSum(array));
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)//обращаемся к длине "измерения" в массиве, в данном случае к длине первого измерения - строка 
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int MainDiagonalSum(int[,] matr)
+{
+    int sum = 0;
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(0); j++)
+        {
+            if (i == j) sum += matr[i, j];
+        }
+    }
+    return sum;
+}
+*/
