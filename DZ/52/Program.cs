@@ -23,7 +23,7 @@ void PrintAverage (int [,] matr)
     Console.Write("Среднее арифметическое каждого столбца: ");
     double Sum = 0;
     double Average = 0;
-    for (int j = 0; j < matr.GetLength(1)-1; j++)
+    for (int j = 0; j < matr.GetLength(1); j++)
     {
         for (int i = 0; i < matr.GetLength(0); i++)
         {
@@ -31,7 +31,7 @@ void PrintAverage (int [,] matr)
         }
         Average = Math.Round(Sum/matr.GetLength(0),1);
         Sum = 0;
-        Console.Write(Average +"; " );
+        Console.Write(Average +"  " );
     }
 }
 
@@ -58,4 +58,3 @@ void PrintArray(int[,] matr)
     }
 }
 
-// Как убрать ; в конце?
