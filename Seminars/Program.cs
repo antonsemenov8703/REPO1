@@ -97,7 +97,8 @@ while (i<=n)
 
 /*
 // Task 7
-// Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает последнюю цифру этого числа
+// Напишите программу, которая принимает на вход трёхзначное число 
+// и на выходе показывает последнюю цифру этого числа
 // 456->6, 782->2, 918->8
 Console.WriteLine("Введите трёхзначное число ");
 int n = Convert.ToInt32(Console.ReadLine());
@@ -145,7 +146,9 @@ while(-n<=max)
 */
 
 /*
-// Task №9 Написать программу, которая выводит случайное число из отрезка [10, 99] и показывает наибольшую цифру числа
+// Task №9 
+// Написать программу, которая выводит случайное число из отрезка [10, 99] 
+// и показывает наибольшую цифру числа
 
 int a = new Random().Next(10,99);
     Console.WriteLine(a);
@@ -162,7 +165,8 @@ else
 */
 
 /*
-// Task №11 Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цыфру.
+// Task №11 
+// Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цыфру.
 int a = new Random().Next(100,999);
     Console.WriteLine(a);
 int first = a/100;
@@ -172,7 +176,10 @@ int number = first*10+third;
 */
 
 /*
-//Task №12 Напишите программу, которая будет принимать на вход 2 числа и выводить, является ли первое число кратным второму. Если число 1 не кратно числу 2, то программа выводит остаток от деления.
+// Task №12 
+// Напишите программу, которая будет принимать на вход 2 числа и выводить, 
+// является ли первое число кратным второму. Если число 1 не кратно числу 2, 
+// то программа выводит остаток от деления.
 
 Console.WriteLine("Введите первое число ");
 int a = Convert.ToInt32(Console.ReadLine());
@@ -206,7 +213,10 @@ else
 */
 
 /*
-//Task №16 Напишите программу, которая принимает на вход 2 числа и определяет, является ли одно число квадратом другого.
+// Task №16 
+// Напишите программу, которая принимает на вход 2 числа и определяет, 
+// является ли одно число квадратом другого.
+
 Console.WriteLine("Введите первое число ");
 int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе число ");
@@ -246,7 +256,8 @@ else if(x>0&y<0)
 */
 
 /*
-//Task 18 По номеру четверти показать диапазон
+// Task 18 
+// По номеру четверти показать диапазон
 
 Console.WriteLine("Введите номер четверти ");
 int n = Convert.ToInt32(Console.ReadLine());
@@ -271,8 +282,10 @@ else
 */
 
 /*
-//Task №21 На вход координаты 2 точек и найдём расстояние между ними
+// Task №21 
+// На вход координаты 2 точек и найдём расстояние между ними
 // a(3.6) b(2.1) -> 5.09  формула АВ=/(xb-xa) в квадрате + (ya-yb)в квадрате
+
 Console.WriteLine("Введите координаты точки A ");
 int xa = Convert.ToInt32(Console.ReadLine());
 int ya = Convert.ToInt32(Console.ReadLine());
@@ -994,3 +1007,218 @@ int MainDiagonalSum(int[,] matr)
     return sum;
 }
 */
+
+// Seminar 7 
+
+/*
+// Задача 53 
+// Напишите программу, которая в двумерном массиве будет менять местами первую и последнюю строку массива.
+
+Console.WriteLine("Задайте длину массива:");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Задайте высоту массива:");
+int m = Convert.ToInt32(Console.ReadLine());
+
+int[,] array = new int[n,m];
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+ChangeLines(array);
+PrintArray(array);
+
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {   
+        for(int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{array[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void ChangeLines(int[,] matr)
+{    
+    for (int j = 0; j < matr.GetLength(1); j++)
+    {
+        int temp = matr[0, j];
+        matr[0, j]= matr[matr.GetLength(0)-1, j] ;
+        matr[matr.GetLength(0)-1, j] = temp;
+    }
+}
+*/
+
+/*
+// Задача 55
+// Задайте двумерный массив. Напишите программу, которая будет
+// заменять строки на столбцы. Если это не возможно, программа
+// должна уведомить пользователя об этом.
+
+Console.WriteLine("Задайте длину массива:");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Задайте высоту массива:");
+int m = Convert.ToInt32(Console.ReadLine());
+//if (n != m) Console.WriteLine("Не сможем транспонировать массив");
+
+int[,] array = new int[n, m];
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+Transpone(array);
+Console.WriteLine("Конечная матрица\n");
+PrintArray(array);
+
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void Transpone(int[,] matr)
+
+// Первый способ - в лоб
+// {
+//     int[,] TransponedArray = new int[n,m];
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             TransponedArray[j,i] = matr[i, j];
+//         }
+//     }
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             matr[i, j] = TransponedArray[i,j];
+//         }
+//     }
+// }
+
+// Второй способ - треугольником  или по диагонали
+
+{
+    for (int i = 0; i < matr.GetLength(0)-1; i++) 
+    {
+        for (int j = i; j < matr.GetLength(1); j++) //перебираем по диагонали!!!
+        {
+            {
+                int temp = matr[j, i]; 
+                matr[j, i] = matr[i, j];
+                matr[i, j] = temp;
+            }
+        }
+    }
+}
+
+*/
+
+// Задача 59 
+// Задайте двумерный массив из целых чисел.
+// Напишите программу, которая удалит строку и столбец,
+// на пересечении которых находится минимальный элемент массива.
+
+Console.WriteLine("Задайте длину массива:");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Задайте высоту массива:");
+int m = Convert.ToInt32(Console.ReadLine());
+//if (n != m) Console.WriteLine("Не сможем транспонировать массив");
+
+int[,] array = new int[n, m];
+int[,] array2 = new int[n - 1, m - 1];
+int rowNumber = 0;
+int columnNumber = 0;
+FillArray(array);
+PrintArray(array);
+DeleteRowColumn(array);
+Console.WriteLine($" {rowNumber} , {columnNumber}");
+Console.WriteLine("Конечная матрица\n");
+PrintArray(array2);
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{matr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void DeleteRowColumn(int[,] matr)
+{
+    int min = matr[0, 0];
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            if (matr[i, j] < min)
+            {
+                min = matr[i, j];
+                rowNumber = i;
+                columnNumber = j;
+            }
+        }
+    }
+    int flagI = 0;
+    int flagJ = 0;
+    for (int i = 0; i < matr.GetLength(0)-1; i++)
+    {
+        for (int j = 0; j < matr.GetLength(1)-1; j++)
+        {
+            if (i < rowNumber) flagI = 0;
+            else flagI = 1;
+
+            if (j < columnNumber) flagJ = 0;
+            else flagJ = 1;
+
+            array2[i, j] = matr[i+flagI, j+flagJ];
+        }
+    }
+}
+
+
