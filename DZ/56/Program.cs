@@ -16,10 +16,12 @@ int N = Convert.ToInt32(Console.ReadLine());
 
 int[,] array = new int[M, N];
 FillArray(array);
+Console.WriteLine();
 PrintArray(array);
-FindSmallerLine(array);
+Console.WriteLine();
+FindSmallestLine(array);
 
-void FindSmallerLine(int[,] matr)
+void FindSmallestLine(int[,] matr)
 {
     int sum = 0;
     for (int j = 0; j < matr.GetLength(1); j++)
@@ -39,9 +41,9 @@ void FindSmallerLine(int[,] matr)
         if (sum < min)
         {
             min = sum;
-            sum = 0;
             line = i + 1;
         }
+        sum = 0;
     }
     Console.WriteLine($"Номер строки с наименьшей суммой элементов: {line} строка");
 }
@@ -63,7 +65,7 @@ void PrintArray(int[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            Console.Write($"{array[i, j]} ");
+            Console.Write($"{matr[i, j]} ");
         }
         Console.WriteLine();
     }
