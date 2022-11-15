@@ -47,37 +47,26 @@ int[,] resultArray = new int[    2     ,     2    ];
 Console.WriteLine("Матрица №1: ");
 PrintArray(array1);
 Console.WriteLine("");
-Console.WriteLine("Матрица №1: ");
+Console.WriteLine("Матрица №2: ");
 PrintArray(array2);
-Console.WriteLine("");
+Console.WriteLine("Результирующая матрица:");
 ArrayProduct(array1,array2);
 PrintArray(resultArray);
 
 void ArrayProduct(int[,] matr1,int[,]matr2)
 {
-    int result = 0;
     for (int i = 0; i < matr1.GetLength(0); i++)
     {
         for (int j = 0; j < matr1.GetLength(1); j++)
         {
-            for (int k = j; k < matr1.GetLength(1); k++)
+            for (int k = 0; k < matr2.GetLength(0); k++)
             {
-                result +=  matr1[i,k] * matr2[k,i]; //= 3
+                resultArray[i,j] +=  matr1[i,k] * matr2[k,j]; 
             }
-            resultArray[i,j] = result;
-            Console.WriteLine($" i= {i}, result {result} ");
-            result = 0;
         }
-        //Console.WriteLine($" i= {i}, result {result} ");
-
-            // С (0,0) = А(0,0) * B(0,0) + A(0,1) * B(1,0) = 1 · 3 + 4 · 1 = 3 + 4 = 7
-            // С (0,1) = А(0,0) * B(0,1) + A(0,1) * B(1,1) = 1 · 5 + 4 · 2 = 5 + 8 = 13
-            // С (1,0) = А(1,0) * B(0,0) + A(1,1) * B(1,0) = 3 · 3 + 5 · 1 = 9 + 5 = 14
-            // С (1,1) = А(1,0) * B(0,1) + A(1,1) * B(1,1) = 3 · 5 + 5 · 2 = 15 + 10 = 25
         
     }
 }
-
 
 void FillArray(int[,] matr)
 {
