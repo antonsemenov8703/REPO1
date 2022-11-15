@@ -19,25 +19,44 @@ int[,] array = new int[M, N];
 FillArray(array);
 PrintArray(array);
 Console.WriteLine("Отсортированная матрица: ");
+//SortMinToMax(array);
 SortMaxToMin(array);
 PrintArray(array);
 
-void SortMaxToMin(int[,] matr)
+void SortMinToMax(int[,] matr)
 {
-    int max = matr[0, 0];
     for (int i = 0; i < matr.GetLength(0); i++)
     {
-        for (int j = 1; j < matr.GetLength(0)-1; j++)
+        for (int j = 0; j < matr.GetLength(1); j++)
         {
-            // for (int k = 1; k < matr.GetLength(0)-1; k++)
-            // {
-                if (matr[i, j - 1] <= matr[i, j])
+            for (int k = matr.GetLength(1)-1; k > j; k--)
+            {
+                if (matr[i,j] > matr[i,k])
                 {
-                    int temp = matr[i, j - 1];
-                    matr[i, j - 1] = matr[i, j];
-                    matr[i, j] = temp;
-                }
-           // }  пузырьковое упорядовачение не полностью работает
+                    int temp = matr[i, j];
+                    matr[i, j] = matr[i, k];
+                    matr[i, k] = temp;
+                }                      
+            }
+        }
+    }
+}
+
+void SortMaxToMin(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            for (int k = matr.GetLength(1)-1; k > j; k--)
+            {
+                if (matr[i,j] < matr[i,k])
+                {
+                    int temp = matr[i, j];
+                    matr[i, j] = matr[i, k];
+                    matr[i, k] = temp;
+                }                      
+            }
         }
     }
 }
