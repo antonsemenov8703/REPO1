@@ -24,31 +24,60 @@
 // В произведении матриц АВ число строк равно числу строк матрицы А , 
 // а число столбцов равно числу столбцов матрицы В.
 
-Console.WriteLine("Введите высоту матрицы: ");
-int M = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите длину матрицы: ");
-int N = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите высоту матрицы #1: ");
+// int M1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите длину матрицы #1: ");
+// int N1 = Convert.ToInt32(Console.ReadLine());
 
-int[,] array = new int[M, N];
-int[,] resultArray = new int[,]; //to correct
-FillArray(array);
-PrintArray(array);
+// Console.WriteLine("Введите высоту матрицы #2: ");
+// int M2 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите длину матрицы #2: ");
+// int N2 = Convert.ToInt32(Console.ReadLine());
+
+int[,] array1 = new int[,] { { 1, 4 }, { 3, 5 } };
+int[,] array2 = new int[,] { { 3, 5 }, { 1, 2 } };
+
+
+// int[,] array1 = new int[M1, N1];
+// int[,] array2 = new int[M2,N2]; 
+int[,] resultArray = new int[    2     ,     2    ]; 
+
+// FillArray(array1);
+// FillArray(array2);
+Console.WriteLine("Матрица №1: ");
+PrintArray(array1);
+Console.WriteLine("");
+Console.WriteLine("Матрица №1: ");
+PrintArray(array2);
+Console.WriteLine("");
+ArrayProduct(array1,array2);
 PrintArray(resultArray);
 
-int ArrayProduct(int[,] matr)
+void ArrayProduct(int[,] matr1,int[,]matr2)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    int result = 0;
+    for (int i = 0; i < matr1.GetLength(0); i++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int j = 0; j < matr1.GetLength(1); j++)
         {
-
+            for (int k = j; k < matr1.GetLength(1); k++)
+            {
+                result +=  matr1[i,k] * matr2[k,i]; //= 3
+            }
+            resultArray[i,j] = result;
+            Console.WriteLine($" i= {i}, result {result} ");
+            result = 0;
         }
+        //Console.WriteLine($" i= {i}, result {result} ");
+
+            // С (0,0) = А(0,0) * B(0,0) + A(0,1) * B(1,0) = 1 · 3 + 4 · 1 = 3 + 4 = 7
+            // С (0,1) = А(0,0) * B(0,1) + A(0,1) * B(1,1) = 1 · 5 + 4 · 2 = 5 + 8 = 13
+            // С (1,0) = А(1,0) * B(0,0) + A(1,1) * B(1,0) = 3 · 3 + 5 · 1 = 9 + 5 = 14
+            // С (1,1) = А(1,0) * B(0,1) + A(1,1) * B(1,1) = 3 · 5 + 5 · 2 = 15 + 10 = 25
+        
     }
 }
 
-
-return 
-}
 
 void FillArray(int[,] matr)
 {
@@ -67,7 +96,7 @@ void PrintArray(int[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            Console.Write($"{array[i, j]} ");
+            Console.Write($"{matr[i, j]} ");
         }
         Console.WriteLine();
     }
