@@ -38,9 +38,12 @@ int[,] array1 = new int[,] { { 1, 4 }, { 3, 5 } };
 int[,] array2 = new int[,] { { 3, 5 }, { 1, 2 } };
 
 
-// int[,] array1 = new int[M1, N1];
+// int[,] array1 = new int[M1,N1];
 // int[,] array2 = new int[M2,N2]; 
-int[,] resultArray = new int[    2     ,     2    ]; 
+// int[,] resultArray = new int[M1,N2]; 
+
+int[,] resultArray = new int[2,2]; 
+
 
 // FillArray(array1);
 // FillArray(array2);
@@ -64,7 +67,6 @@ void ArrayProduct(int[,] matr1,int[,]matr2)
                 resultArray[i,j] +=  matr1[i,k] * matr2[k,j]; 
             }
         }
-        
     }
 }
 
