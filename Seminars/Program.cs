@@ -1297,16 +1297,47 @@ void printNaturalNumbers(int n)
 }
 */
 
-
+/*
 // Задача 67: 
 // Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
 // 453 -> 12
 // 45 -> 9
 
+Console.WriteLine("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
 
+Console.WriteLine(sumOfNumbers(number));
+
+int sumOfNumbers(int n)
+{
+    if (n<10) return n;
+    else 
+    {
+        return sumOfNumbers(n/10)+n%10; //мы возвращаем остаток от деления на десять плюс рекурсированный остаток от деления на десять последующие. И в конце от последнего значения n, который меньше 10 - т.е. последнюю цифру числа
+    }
+}
+*/
 
 // Задача 69: 
 // Напишите программу, которая на вход принимает два числа A и B, 
 // и возводит число А в целую степень B с помощью рекурсии.
 // A = 3; B = 5 -> 243 (3⁵)
 // A = 2; B = 3 -> 8
+
+
+Console.WriteLine("Введите число A: ");
+int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите число B: ");
+int degree = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine(exponentiation(number,degree));
+
+int exponentiation(int a, int b)
+{
+    if (b==1) return a;
+    else 
+    {
+        //return sumOfNumbers (a*a, b-1) ; // это помоему фибоначчи
+        return exponentiation (a, b-1)*a ; //конец записи *a - это то , что мы будем накапливать, а в скобках - это то, что мы прогоняем через рекурсию - а чтобы лучше это понять - МЫ ОТПРАВЛЯЕМ ЗНАЧЕНИЯ (a, b-1) В АРГУМЕНТ МЕТОДА, А *a У НАС ИДЁТ ПРОСТО В return. И ТАКИМ ОБРАЗОМ У НАС В return ПРОХОДЯ ЧЕРЕЗ РЕКУРСИЮ БУДУТ ОСТАВАТЬСЯ ТОЛЬКО a*a*a...  
+    }
+}
